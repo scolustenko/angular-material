@@ -6,13 +6,8 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = {
-    entry: {
-        // mail: "./public/app/Components/mail/mail",
-        // services: "./public/app/services/mailapi/mailapi",
-        app: './app/app.js'
-        //     vendor: [
-        //         'angular',
-        //         'angular-ui-router']
+    entry: {   
+        app: './app/app.js'  
     },
     output: {
         path: __dirname,
@@ -34,7 +29,6 @@ module.exports = {
     },
 
     plugins: [
-        // new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ],
 
@@ -43,8 +37,7 @@ module.exports = {
             test: /\.js$/,
             exclude: /node_modules/,
             loader: 'babel',
-            query: {
-                // plugins: ['transform-runtime'],
+            query: {              
                 presets: ['es2015']
             },
         },
