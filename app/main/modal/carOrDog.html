@@ -1,0 +1,49 @@
+<md-dialog>
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2> Cat or Dog</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="$ctrl.cancel()">
+                    <md-icon md-font-icon="close" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <h2>Cats are awesome! But dogs!?</h2>
+            </div>
+            <div class="row">
+                <div flex-xs flex-gt-xs="50" layout="column">
+                    <md-card>
+                        <md-card-title>
+                            <span class="md-headline">Cat</span>
+                        </md-card-title>
+                        <md-card-content>
+                            <img ng-src={{$ctrl.cat}} alt="" class="md-card-image">
+                        </md-card-content>
+                    </md-card>
+                </div>
+                <div flex-xs flex-gt-xs="50" layout="column">
+                    <md-card>
+                        <md-card-title>
+                            <span class="md-headline">Dog</span>
+                        </md-card-title>
+                        <md-card-content>
+                            <img ng-src={{$ctrl.dog}} alt="" class="md-card-image">
+                        </md-card-content>
+                    </md-card>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="$ctrl.answer('cat')" class="md-accent md-raised md-hue-1">
+                cat
+            </md-button>
+            <md-button ng-click="$ctrl.answer('dog')" class="md-raised md-warn" style="margin-right:20px;">
+                dog
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

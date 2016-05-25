@@ -1,0 +1,95 @@
+<div flex layout="column">
+    <md-toolbar layout="row" layout-align="center center">
+        <h1 class="md-display-3">POKEDEX</h1>
+    </md-toolbar>
+</div>
+<!--<div flex="70" layout="row">-->
+<!--<md-fab-speed-dial md-open="$ctrl.isOpen" md-direction="right"-->
+<!--ng-class="'md-fling'">-->
+<!--<md-fab-trigger>-->
+<!--<md-button aria-label="menu" class="md-fab md-warn">-->
+<!--<md-icon md-svg-src="img/icons/menu.svg"></md-icon>-->
+<!--</md-button>-->
+<!--</md-fab-trigger>-->
+<!--<md-fab-actions ng-repeat="action in $ctrl.actions">-->
+<!--<div class="md-fab" ng-click="$ctrl.isOpen = !$ctrl.isOpen">-->
+<!--<label>{{action.name}}</label>-->
+<!--<input ng-model="action.msg" disabled>-->
+<!--</div>-->
+<!--</md-fab-actions>-->
+<!--</md-fab-speed-dial>-->
+<!--</div>-->
+<div flex layout="row" ng-init="$ctrl.areYouReady(0)">
+    <div flex="15" layout="column" class="boxWithHeight" layout-padding>
+        <h4 flex="10" class="md-display-1">Actions</h4>
+        <md-button
+                flex="20"
+                ng-repeat="action in $ctrl.actions"
+                ng-click="action.event($event, action)"
+                class="md-accent md-primary md-hue-1">{{ action.name}}
+            <div ng-if="$index == 2">
+                <md-fab-speed-dial md-open="$ctrl.isOpen" md-direction="right"
+                                   ng-class="'md-fling'">
+                    <md-fab-trigger>
+                        <md-button aria-label="menu" class="md-fab md-warn">
+                            <md-icon md-svg-src="img/icons/menu.svg"></md-icon>
+                        </md-button>
+                    </md-fab-trigger>
+                    <md-fab-actions>
+                        <div class="md-fab" ng-click="$ctrl.isOpen = !$ctrl.isOpen">
+                            <md-icon md-font-icon="'icon-settings'"
+                                     aria-label="'icon-settings'"
+                                     class="step ">{{action.name}}</md-icon>
+                        </div>
+                    </md-fab-actions>
+                </md-fab-speed-dial>
+            </div>
+        </md-button>
+    </div>
+    <div flex="55" layout="column" class="boxWithHeight" layout-padding>
+        <div flex="33" layout="row">
+            <h4 flex="40" class="md-display-1" layout="row">Staging</h4>
+        </div>
+        <div flex layout="row">
+            <md-card layout="column" ng-repeat="action in $ctrl.actions | filter:{active: true }">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{action.name}}</span>
+                        <span class="md-subhead">{{action.msg}}</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                        <div class="md-media-lg card-media">
+                            <!--<img flex="33"-->
+                            <!--ng-src="http://www.thewrap.com/wp-content/uploads/2015/11/Star-Wars-Avatar-Split.jpg">-->
+                        </div>
+                    </md-card-title-media>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button>Action 1</md-button>
+                    <md-button>Action 2</md-button>
+                </md-card-actions>
+            </md-card>
+        </div>
+        <md-button
+                class="md-raised"
+                ng-click="$ctrl.getPic()">just reload picture
+        </md-button>
+    </div>
+    <div flex="25" layout="column" class="boxWithHeight" layout-padding>
+        <h4 class="md-display-1">Random pics</h4>
+        <div class="row">
+
+        </div>
+        <img ng-repeat="pic in $ctrl.randomPictures"
+             ng-src={{pic}}
+             class="md-card-image"
+             style="margin: auto;
+                    max-width: 100%">
+        <!--<img ng-src="http://www.thewrap.com/wp-content/uploads/2015/11/Star-Wars-Avatar-Split.jpg">-->
+    </div>
+</div>
+<md-grid-tile-footer flex class="row">
+    <div flex layout="column" class="boxWithHeight" layout-padding>
+        <section flex>flex</section>
+    </div>
+</md-grid-tile-footer>

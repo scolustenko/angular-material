@@ -4,14 +4,16 @@ import 'angular-material/angular-material.css';
 import angular from 'angular';
 import angularMaterial from 'angular-material';
 import uirouter from 'angular-ui-router';
-
+import restService from './app.service';
 
 import {themeConfig} from './app.config';
 import {routing} from './app.config';
-import main from './poke-main/poke-main';
+import main from './main/main.js';
+
 
 angular.module('app', [angularMaterial, uirouter])
     .config(routing)
     .config(themeConfig)
+    .service('restService', restService)
     .component('app', main);
 
