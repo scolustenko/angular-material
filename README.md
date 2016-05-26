@@ -3,9 +3,10 @@ angular-material app
 
 ## Installation:
 ### NPM
-1. npm i
-2. npm start
-
+```bash
+npm i
+npm start
+```
 
  The related scope looks like this:
 ```javascript
